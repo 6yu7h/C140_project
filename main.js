@@ -51,6 +51,18 @@ function draw()
 					document.getElementById("song_name").innerHTML = "Song Name is Piano Instrumental song" + song;
 				}
 		}
+	
+	if(scoreRightWrist > 0.2)
+		{
+			circle(rightWristX, rightWristY,20);
+			song.stop();
+			
+			if(song2 == "false")
+				{
+					song2.play();
+					document.getElementById("song_name").innerHTML = "Song Name is Violin Instrumental song" + song2;
+				}
+		}
 }
 
 function gotPoses(results)
@@ -58,6 +70,7 @@ function gotPoses(results)
 	if(results.length > 0)
 		{
 			console.log(results);
+			scoreRightWrist = results[0].pose.keypoints[10].score;
 			scoreLeftWrist = results[0].pose.keypoints[9].score;
 			console.log("ScoreLeftWrist = " + scoreLeftWrist);
 			
