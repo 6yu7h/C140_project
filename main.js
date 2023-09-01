@@ -39,28 +39,27 @@ function draw()
 	fill("#FF0000");
 	stroke("#FF0000");
 	
-	song.isPlaying();
+	
 	if(scoreLeftWrist > 0.2)
 		{
+			song.play();
 			circle(leftWristX, leftWristY,20);
-			song2.stop();
-			
-			if(song == "false")
+			if(song == "true")
 				{
 					song.play();
-					document.getElementById("song_name").innerHTML = "Song Name is Piano Instrumental song" + song;
+					document.getElementById("song_name").innerHTML = "Piano Instrumental song" + song;
 				}
 		}
 	
-	if(scoreRightWrist > 0.2)
+	else if(scoreRightWrist > 0.2)
 		{
-			circle(rightWristX, rightWristY,20);
 			song.stop();
-			
-			if(song2 == "false")
+			song2.play();
+			circle(rightWristX, rightWristY,20);
+			if(song == "false")
 				{
 					song2.play();
-					document.getElementById("song_name").innerHTML = "Song Name is Violin Instrumental song" + song2;
+					document.getElementById("song_name").innerHTML = "Violin Instrumental song" + song2;
 				}
 		}
 }
